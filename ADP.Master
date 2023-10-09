@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ADP.master.cs" Inherits="ADP.ADP" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <style>
+            body{
+                background-color: #DCEDC8;
+            }
+        </style>
+
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ADP</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div>
+        <nav style="background-color: #8BC34A;">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Weight <strong>Balance</strong></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="Login.aspx">Log In</a></li>
+                    <li><a href="Asistente.aspx">Asistente</a></li>
+                    <li><a href="#">Mi Cuidado</a></li>
+                </ul>
+            </div>
+        </nav>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+
+</body>
+</html>
