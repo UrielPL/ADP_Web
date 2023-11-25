@@ -11,28 +11,31 @@ using System.Web.UI.WebControls;
 
 namespace ADP
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class MiCuidado : System.Web.UI.Page
     {
+        public static UsuarioDTO user { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
         [WebMethod]
-        public static string loginUser(string email, string pass)
+        public static string traeUser(string id)
         {
+            var idUser = id.Replace("\"","");
             var client = new RestClient(Util.WSURL());
-            var request = new RestRequest("Usuarios?email=" + email + "&contra=" + pass, Method.GET);
+            var request = new RestRequest("Usuarios?id=" + idUser, Method.GET);
             IRestResponse restResponse = client.Execute(request);
 
-            if(restResponse.StatusCode == System.Net.HttpStatusCode.OK)
+            if (restResponse.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                var content = restResponse.Content;
-                return JsonConvert.SerializeObject(content);
+
+                user = JsonConvert.DeserializeObject<UsuarioDTO>(restResponse.Content);
+
+                return JsonConvert.SerializeObject(user);
             }
 
             return "-1";
-            
         }
     }
 }

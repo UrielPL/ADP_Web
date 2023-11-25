@@ -28,11 +28,15 @@
     <div>
         <nav style="background-color: #8BC34A;">
             <div class="nav-wrapper">
+                
                 <a href="#" class="brand-logo">Weight <strong>Balance</strong></a>
+                <img src="img/ADLogo.jpg" style="width:6rem; float:right;"/>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="Login.aspx">Log In</a></li>
-                    <li><a href="Asistente.aspx">Asistente</a></li>
-                    <li><a href="#">Mi Cuidado</a></li>
+                    <li id="liLogin"><a href="Login.aspx">Log In</a></li>
+                    <li id="liLogout" onclick="salir()"><a>Log Out</a></li>
+                    <li id="liAss"><a href="Asistente.aspx">Asistente</a></li>
+                    <li id="liMC"><a href="MiCuidado.aspx">Mi Cuidado</a></li>
+                    <li id="Acerca"><a href="About.aspx">Acerca de</a></li>
                 </ul>
             </div>
         </nav>
@@ -41,4 +45,31 @@
     </div>
 
 </body>
+
+    <script>
+        var id = localStorage.getItem("id");
+
+        $(document).ready(function () {
+
+            if (id == null) {
+                $('#liLogin').hide();
+                $('#liLogout').hide();
+                $('#liAss').hide();
+                $('#liMC').hide();
+                $('#Acerca').hide();
+            } else {
+                $('#liLogin').hide();
+                $('#liLogout').show();
+                $('#liAss').show();
+                $('#liMC').show();
+                $('#Acerca').show();
+            }
+
+        });
+
+        function salir() {
+            localStorage.removeItem("id");
+            window.location.href = "Login.aspx";
+        }
+    </script>
 </html>

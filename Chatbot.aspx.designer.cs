@@ -11,7 +11,7 @@ namespace ADP
 {
 
 
-    public partial class About
+    public partial class Chatbot
     {
     }
 }
